@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA - Shot Editor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">NOVA</div>
+        <div class="scene-name">Scene 1 - Interior Apartment</div>
+        <div class="header-actions">
+            <button class="header-btn">Back to Upload</button>
+            <button class="header-btn">Export</button>
+            <button class="header-btn primary">Save</button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Left Sidebar - Shot List -->
+        <div class="shot-list">
+            <div class="shot-list-header">Shots</div>
+            <div class="shot-items">
+                <div class="shot-item active">
+                    <div class="shot-number">Shot 001</div>
+                    <div class="shot-desc">Wide shot - Character enters room</div>
+                </div>
+                <div class="shot-item">
+                    <div class="shot-number">Shot 002</div>
+                    <div class="shot-desc">Close-up - Reaction to discovery</div>
+                </div>
+                <div class="shot-item">
+                    <div class="shot-number">Shot 003</div>
+                    <div class="shot-desc">Medium shot - Walking to window</div>
+                </div>
+            </div>
+            <button class="add-shot-btn">+ ADD SHOT</button>
+        </div>
+
+        <!-- Center - Preview Area -->
+        <div class="preview-area">
+            <div class="preview-container">
+                <div class="preview-placeholder">
+                    <div class="preview-placeholder-icon">🎬</div>
+                    <p>Generate your first shot</p>
+                </div>
+            </div>
+            <div class="preview-controls">
+                <button class="control-btn">Download</button>
+                <button class="control-btn">Compare</button>
+                <button class="control-btn">Add to Storyboard</button>
+            </div>
+        </div>
+
+        <!-- Right Sidebar - Controls Panel -->
+        <div class="controls-panel">
+            <!-- Mode Switcher -->
+            <div class="mode-switcher">
+                <button class="mode-tab active" data-mode="text">Text Mode</button>
+                <button class="mode-tab" data-mode="json">JSON Mode</button>
+            </div>
+
+            <!-- Controls Content -->
+            <div class="controls-content">
+                <!-- Text Mode -->
+                <div class="text-mode active">
+                    <textarea class="text-input" placeholder="Describe your changes...
+e.g., 'Make it darker', 'Move camera lower', 'Add more atmosphere'..."></textarea>
+
+                    <!-- Camera Parameters -->
+                    <div class="param-section">
+                        <div class="param-label">
+                            Camera Angle
+                            <span class="info-icon">
+                                i
+                                <span class="tooltip">Vertical angle of the camera relative to subject</span>
+                            </span>
+                        </div>
+                        <select class="param-select">
+                            <option>Eye Level</option>
+                            <option>Low Angle</option>
+                            <option>High Angle</option>
+                            <option>Dutch Angle</option>
+                            <option>Overhead</option>
+                            <option>Bird's Eye</option>
+                        </select>
+                    </div>
+
+                    <div class="param-section">
+                        <div class="param-label">
+                            Lens (mm)
+                            <span class="info-icon">
+                                i
+                                <span class="tooltip">Focal length affects perspective and compression</span>
+                            </span>
+                        </div>
+                        <input type="range" class="param-slider" min="8" max="200" value="35" id="lensSlider">
+                        <div class="slider-value">
+                            <span>8mm</span>
+                            <span class="slider-current">35mm</span>
+                            <span>200mm</span>
+                        </div>
+                    </div>
+
+                    <div class="param-section">
+                        <div class="param-label">
+                            Shot Size
+                            <span class="info-icon">
+                                i
+                                <span class="tooltip">How much of the subject is in frame</span>
+                            </span>
+                        </div>
+                        <select class="param-select">
+                            <option>Extreme Wide Shot</option>
+                            <option>Wide Shot</option>
+                            <option>Medium Shot</option>
+                            <option>Close-Up</option>
+                            <option>Extreme Close-Up</option>
+                        </select>
+                    </div>
+
+                    <div class="param-section">
+                        <div class="param-label">
+                            Camera Height
+                            <span class="info-icon">
+                                i
+                                <span class="tooltip">Physical height of camera from ground</span>
+                            </span>
+                        </div>
+                        <input type="range" class="param-slider" min="0" max="20" value="5" step="0.5" id="heightSlider">
+                        <div class="slider-value">
+                            <span>0ft</span>
+                            <span class="slider-current">5.0ft</span>
+                            <span>20ft</span>
+                        </div>
+                    </div>
+
+                    <div class="param-section">
+                        <div class="param-label">
+                            Lighting
+                            <span class="info-icon">
+                                i
+                                <span class="tooltip">Overall lighting style and mood</span>
+                            </span>
+                        </div>
+                        <select class="param-select">
+                            <option>Natural</option>
+                            <option>Low Key</option>
+                            <option>High Key</option>
+                            <option>Three-Point</option>
+                            <option>Rembrandt</option>
+                            <option>Silhouette</option>
+                        </select>
+                    </div>
+
+                    <div class="param-section">
+                        <div class="param-label">
+                            Time of Day
+                            <span class="info-icon">
+                                i
+                                <span class="tooltip">Natural lighting time period</span>
+                            </span>
+                        </div>
+                        <select class="param-select">
+                            <option>Dawn</option>
+                            <option>Morning</option>
+                            <option>Midday</option>
+                            <option>Golden Hour</option>
+                            <option>Dusk</option>
+                            <option>Night</option>
+                        </select>
+                    </div>
+
+                    <div class="param-section">
+                        <div class="param-label">
+                            Depth of Field
+                            <span class="info-icon">
+                                i
+                                <span class="tooltip">Amount of focus fall-off in background</span>
+                            </span>
+                        </div>
+                        <input type="range" class="param-slider" min="1" max="22" value="4" step="0.5" id="dofSlider">
+                        <div class="slider-value">
+                            <span>Shallow</span>
+                            <span class="slider-current">f/4.0</span>
+                            <span>Deep</span>
+                        </div>
+                    </div>
+
+                    <div class="param-section">
+                        <div class="param-label">
+                            Color Grade
+                            <span class="info-icon">
+                                i
+                                <span class="tooltip">Overall color treatment and mood</span>
+                            </span>
+                        </div>
+                        <select class="param-select">
+                            <option>Natural</option>
+                            <option>Warm</option>
+                            <option>Cool</option>
+                            <option>Desaturated</option>
+                            <option>Film Noir</option>
+                            <option>Sepia</option>
+                        </select>
+                    </div>
+
+                    <div class="param-section">
+                        <div class="param-label">
+                            Camera Movement
+                            <span class="info-icon">
+                                i
+                                <span class="tooltip">Type of camera motion during shot</span>
+                            </span>
+                        </div>
+                        <select class="param-select">
+                            <option>Static</option>
+                            <option>Pan</option>
+                            <option>Tilt</option>
+                            <option>Dolly</option>
+                            <option>Track</option>
+                            <option>Handheld</option>
+                        </select>
+                        <div class="param-info-section">
+                        <div class="param-info-header">Parameter Information</div>
+                        <div class="param-info-content">
+                            <strong>camera_angle:</strong> Vertical angle of camera relative to subject (eye_level, low_angle, high_angle, dutch_angle, overhead, birds_eye)<br><br>
+
+                            <strong>lens_mm:</strong> Focal length in millimeters (8-200mm). Lower = wider view, Higher = compressed perspective<br><br>
+
+                            <strong>shot_size:</strong> How much of subject is in frame (extreme_wide, wide, medium, close_up, extreme_close_up)<br><br>
+
+                            <strong>camera_height_ft:</strong> Physical height of camera from ground in feet (0-20ft)<br><br>
+
+                            <strong>lighting_type:</strong> Overall lighting style (natural, low_key, high_key, three_point, rembrandt, silhouette, chiaroscuro)<br><br>
+
+                            <strong>lighting_direction:</strong> Primary light source direction (front, side, back, top, bottom, rim)<br><br>
+
+                            <strong>color_temperature:</strong> Warmth/coolness of light in Kelvin (2000-10000K). Lower = warmer, Higher = cooler<br><br>
+
+                            <strong>time_of_day:</strong> Natural lighting period (dawn, morning, midday, golden_hour, dusk, night, blue_hour)<br><br>
+
+                            <strong>depth_of_field:</strong> Amount of background blur (shallow, medium, deep)<br><br>
+
+                            <strong>aperture:</strong> F-stop value controlling depth of field (f/1.4 - f/22). Lower = more blur<br><br>
+
+                            <strong>focus_distance:</strong> Distance to focus point in feet<br><br>
+
+                            <strong>color_grade:</strong> Overall color treatment (natural, warm, cool, desaturated, noir, sepia, teal_orange, vintage)<br><br>
+
+                            <strong>saturation:</strong> Color intensity (0.0-2.0). 1.0 = normal, <1.0 = muted, >1.0 = vibrant<br><br>
+
+                            <strong>contrast:</strong> Difference between lights and darks (0.0-2.0). 1.0 = normal<br><br>
+
+                            <strong>brightness:</strong> Overall exposure level (-2.0 to +2.0). 0 = normal<br><br>
+
+                            <strong>camera_movement:</strong> Type of camera motion (static, pan, tilt, dolly, track, crane, handheld, steadicam)<br><br>
+
+                            <strong>movement_speed:</strong> Speed of camera movement (slow, medium, fast, whip)<br><br>
+
+                            <strong>composition_rule:</strong> Framing guideline (thirds, golden_ratio, center, symmetry, diagonal)<br><br>
+
+                            <strong>subject_position:</strong> Where subject is placed (center, left, right, top, bottom, corner)<br><br>
+
+                            <strong>aspect_ratio:</strong> Frame dimensions (16:9, 2.39:1, 4:3, 1:1, 9:16)<br><br>
+
+                            <strong>film_stock:</strong> Film emulation type (digital, 35mm, 16mm, 8mm, super8, imax)<br><br>
+
+                            <strong>grain_intensity:</strong> Amount of film grain (0.0-1.0). 0 = none, 1 = heavy<br><br>
+
+                            <strong>vignette:</strong> Edge darkening intensity (0.0-1.0)<br><br>
+
+                            <strong>lens_distortion:</strong> Barrel/pincushion effect (-1.0 to +1.0)<br><br>
+
+                            <strong>chromatic_aberration:</strong> Color fringing on edges (0.0-1.0)<br><br>
+
+                            <strong>weather:</strong> Environmental conditions (clear, overcast, rain, snow, fog, storm)<br><br>
+
+                            <strong>atmosphere:</strong> Overall mood (tense, peaceful, mysterious, dramatic, eerie, romantic)<br><br>
+
+                            <strong>fog_density:</strong> Amount of fog/haze (0.0-1.0)<br><br>
+
+                            <strong>shadow_intensity:</strong> Darkness of shadows (0.0-1.0)<br><br>
+
+                            <strong>highlight_intensity:</strong> Brightness of highlights (0.0-1.0)
+                        </div>
+                    </div>
+                    </div>
+
+                    <button class="generate-btn">Generate Shot</button>
+                </div>
+
+                <!-- JSON Mode -->
+                <div class="json-mode">
+                    <textarea class="json-editor" spellcheck="false">{
+  "shot_id": "shot_001",
+  "camera": {
+    "angle": "eye_level",
+    "lens_mm": 35,
+    "fov": "medium",
+    "height_ft": 5.0,
+    "movement": "static"
+  },
+  "shot_size": "wide_shot",
+  "lighting": {
+    "type": "natural",
+    "direction": "side",
+    "color_temp": 5600,
+    "intensity": 0.8
+  },
+  "depth_of_field": {
+    "aperture": 4.0,
+    "focus_distance": 10
+  },
+  "color_grade": {
+    "preset": "natural",
+    "saturation": 1.0,
+    "contrast": 1.0
+  },
+  "time_of_day": "golden_hour",
+  "composition": {
+    "rule": "thirds",
+    "subject_position": "center"
+  }
+}</textarea>
+                    <div class="json-actions">
+                        <button class="json-btn">Validate JSON</button>
+                        <button class="json-btn">Load Preset</button>
+                    </div>
+                    <button class="generate-btn">Generate Shot</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mode switching
+        const modeTabs = document.querySelectorAll('.mode-tab');
+        const textMode = document.querySelector('.text-mode');
+        const jsonMode = document.querySelector('.json-mode');
+
+        modeTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const mode = tab.dataset.mode;
+
+                modeTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                if (mode === 'text') {
+                    textMode.classList.add('active');
+                    jsonMode.classList.remove('active');
+                } else {
+                    jsonMode.classList.add('active');
+                    textMode.classList.remove('active');
+                }
+            });
+        });
+
+        // Slider value updates
+        const lensSlider = document.getElementById('lensSlider');
+        const heightSlider = document.getElementById('heightSlider');
+        const dofSlider = document.getElementById('dofSlider');
+
+        lensSlider.addEventListener('input', (e) => {
+            const value = e.target.value;
+            e.target.nextElementSibling.querySelector('.slider-current').textContent = value + 'mm';
+        });
+
+        heightSlider.addEventListener('input', (e) => {
+            const value = parseFloat(e.target.value).toFixed(1);
+            e.target.nextElementSibling.querySelector('.slider-current').textContent = value + 'ft';
+        });
+
+        dofSlider.addEventListener('input', (e) => {
+            const value = parseFloat(e.target.value).toFixed(1);
+            e.target.nextElementSibling.querySelector('.slider-current').textContent = 'f/' + value;
+        });
+
+        // Shot selection
+        const shotItems = document.querySelectorAll('.shot-item');
+        shotItems.forEach(item => {
+            item.addEventListener('click', () => {
+                shotItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+
+        // Generate button
+        const generateBtns = document.querySelectorAll('.generate-btn');
+        generateBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Generating shot with current parameters...');
+            });
+        });
+    </script>
+</body>
+</html>
