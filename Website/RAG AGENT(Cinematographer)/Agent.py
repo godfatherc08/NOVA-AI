@@ -17,7 +17,7 @@ import os
 
 COHEREKEY = os.getenv("COHERE_API_KEY")
 
-co = cohere.ClientV2(api_key='EEYfgu69cPTLtyj8riog2s8HLY5ClqyyWde6EHrS')
+co = cohere.ClientV2(api_key=COHEREKEY)
 
 
 @tool(response_format="content_and_artifact")
@@ -63,7 +63,7 @@ response = co.chat(
         {"role": "system", "content": CINEMATOGRAPHY_SYSTEM_PROMPT},
         {"role": "user", "content": f"Scene: {question}"}
     ],
-    max_tokens=1000
+    max_tokens=4000
 )
 
 result = response.message.content[0].text
