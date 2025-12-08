@@ -9,7 +9,7 @@ from Retrieval import Retrieval
 import dotenv
 dotenv.load_dotenv()
 
-question = input("Enter your query: ")
+#question = input("Enter your query: ")
 
 retrieval = Retrieval()
 
@@ -52,22 +52,18 @@ CINEMATOGRAPHY_SYSTEM_PROMPT = (
 )
 
 
-prompt = PromptTemplate(
-    input_variables=["scene_description"],
-    template=CINEMATOGRAPHY_SYSTEM_PROMPT
-)
+def produce_document(question:str):
+    response = co.chat(
+        model="command-xlarge-nightly",
+        messages=[
+            {"role": "system", "content": CINEMATOGRAPHY_SYSTEM_PROMPT},
+            {"role": "user", "content": f"Scene: {question}"}
+        ],
+        max_tokens=4000
+    )
 
-response = co.chat(
-    model="command-xlarge-nightly",
-    messages=[
-        {"role": "system", "content": CINEMATOGRAPHY_SYSTEM_PROMPT},
-        {"role": "user", "content": f"Scene: {question}"}
-    ],
-    max_tokens=4000
-)
-
-result = response.message.content[0].text
-print(result)
+    result = response.message.content[0].text
+    return result
 #
 # AGENT = create_agent(
 #     model=ll,

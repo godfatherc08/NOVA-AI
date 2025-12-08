@@ -219,8 +219,8 @@ __marimo__/
 #my own
 .venv
 .venv1
-Website/RAG AGENT(Cinematographer)/.env
-Website/RAG AGENT(Cinematographer)/credentials.json
-Website/RAG AGENT(Cinematographer)/token.json
-Website/RAG AGENT(Cinematographer)/placeholder
+Website/RAG_AGENT_Cinematographer/.env
+Website/RAG_AGENT_Cinematographer/credentials.json
+Website/RAG_AGENT_Cinematographer/token.json
+Website/RAG_AGENT_Cinematographer/placeholder
 .idea
