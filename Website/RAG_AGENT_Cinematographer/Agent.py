@@ -5,7 +5,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain.tools import tool
 from langchain_nvidia_ai_endpoints import ChatNVIDIA
 from langchain.agents import create_agent
-from Retrieval import Retrieval
+from .Retrieval import Retrieval
 import dotenv
 dotenv.load_dotenv()
 
