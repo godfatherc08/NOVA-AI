@@ -54,11 +54,9 @@ class Retrieval:
         tokenized_corpus = [word_tokenize(t) for t in t_text]
         query_tokens = word_tokenize(query)
 
-        # Step 3: Local BM25 scoring
         bm25 = BM25Okapi(tokenized_corpus)
         bm25_scores = bm25.get_scores(query_tokens)
 
-        # Step 3: Score fusion
         α, β = 1.0, 0.8  # tune these
         fused_scores = [
             α * vector_scores[i] + β * bm25_scores[i]
@@ -91,7 +89,6 @@ class Retrieval:
         )
 
         final_docs = [doc for doc, s in ranked[:self.final_k]]
-        #print(f"final_docs:{final_docs}")
         return final_docs
 
 

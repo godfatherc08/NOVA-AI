@@ -9,6 +9,3 @@ class Project(db.Model):
 
     def __repr__(self):
         return f'<ProjectBackend:  {self.name}>'
-
-
-

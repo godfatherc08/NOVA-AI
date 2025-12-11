@@ -83,10 +83,13 @@
                     Have a specific vision? Describe your shot or upload a reference image. We'll generate it with full cinematic control.
                 </div>
                 <div class="upload-zone">
-                        <textarea name="message" rows="5" cols="40" placeholder="Enter your message here"></textarea>
+                    <form method="post" action="{{ url_for('views.editor') }}">
+                        <label for="query"></label><input type="text" class = "form-control" id = "query" name = "query" placeholder = "Enter scene:" style = "font-size: 15pt; width: 500px">
+                        <button class="cta-button" type="submit">Create Shot</button>
+                    </form>
                     <p style="color: #666; font-size: 14px;">Describe your shot or upload reference</p>
                 </div>
-                <a href="/editor"><button class="cta-button">Create Shot</button></a>
+                =
             </div>
         </div>
     </section>

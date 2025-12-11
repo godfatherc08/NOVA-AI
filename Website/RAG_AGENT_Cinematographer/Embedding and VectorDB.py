@@ -41,6 +41,7 @@ load_pdf = lc.load_pdf_from_folderID()
 semantic_chunks = lc.chunk(load_pdf)
 semantic_chunks_text = [semantic_chunks[i].page_content for i in range(len(semantic_chunks))]
 
+
 """      Embedding Documents with embedding Model   """
 final_chunks = lc.embeddings.embed_documents(semantic_chunks_text)
 
