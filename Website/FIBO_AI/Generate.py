@@ -24,11 +24,11 @@ class Generate:
         return payload
 
     @staticmethod
-    def generate_payload_refine(refinement: str):
-        cinematographer_document = produce_document(refinement)
-        print(cinematographer_document)
+    def generate_payload_refine(refinement: str, structured_prompt,seed):
         payload = {
-            "prompt": f"{cinematographer_document}"
+            "prompt": f"{refinement}",
+            "structured_prompt": f"{structured_prompt}",
+            "seed": f"{seed}"
         }
         return payload
 
@@ -51,8 +51,38 @@ class Generate:
 
             if status == "COMPLETED":
                 image_url = status_data["result"]["image_url"]
+                structured_prompt = status_data["result"]["structured_prompt"]
+                seed = status_data["result"]["seed"]
                 print("Completed! Download URL:", image_url)
-                return image_url
+                return image_url, structured_prompt, seed
+
+            if status in ("ERROR", "UNKNOWN"):
+                raise RuntimeError(f"Generation failed: {status_data}")
+
+            time.sleep(2)
+    def return_image_refine(self, refinement:str, structured_prompt, seed):
+        document = self.generate_payload_refine(refinement, structured_prompt, seed)
+        response = requests.post(self.url, json=document, headers=self.headers)
+        data = response.json()
+        status_url = data.get("status_url")
+        if not status_url:
+            raise RuntimeError(f"No status URL returned from API: {data}")
+
+        while True:
+            status_resp = requests.get(status_url, headers=self.headers)
+            status_resp.raise_for_status()
+
+            status_data = status_resp.json()
+            status = status_data.get("status")
+
+            print("Status:", status)
+
+            if status == "COMPLETED":
+                image_url = status_data["result"]["image_url"]
+                structured_prompt = status_data["result"]["structured_prompt"]
+                seed = status_data["result"]["seed"]
+                print("Completed! Download URL:", image_url)
+                return image_url, structured_prompt, seed
 
             if status in ("ERROR", "UNKNOWN"):
                 raise RuntimeError(f"Generation failed: {status_data}")
