@@ -25,8 +25,7 @@
             <div class="shot-list-header">Shots</div>
             <div class="shot-items">
                 <div class="shot-item active">
-                    <div class="shot-number">Shot 001</div>
-                    <div class="shot-desc">Wide shot - Character enters room</div>
+                    <div class="shot-number">Shot 01</div>
                 </div>
             </div>
         </div>
@@ -70,6 +69,7 @@
                                 <span class="info-icon">i<span class="tooltip">Vertical angle of camera relative to subject</span></span>
                             </div>
                             <select class="param-select" id="camera_angle" name="camera_angle">
+                                <option value="" selected hidden></option>
                                 <option value="eye_level">Eye Level</option>
                                 <option value="low_angle">Low Angle</option>
                                 <option value="high_angle">High Angle</option>
@@ -86,6 +86,7 @@
                                 <span class="info-icon">i<span class="tooltip">How much of the subject is in frame</span></span>
                             </div>
                             <select class="param-select" id="shot_size" name="shot_size">
+                                <option value="" selected hidden></option>
                                 <option value="extreme_wide">Extreme Wide Shot (EWS)</option>
                                 <option value="wide">Wide Shot (WS)</option>
                                 <option value="full">Full Shot</option>
@@ -118,23 +119,7 @@
                             </div>
                         </div>
 
-                        <div class="param-section">
-                            <div class="param-label">
-                                Camera Movement
-                                <span class="info-icon">i<span class="tooltip">Type of camera motion during shot</span></span>
-                            </div>
-                            <select class="param-select" id="camera_movement" name="camera_movement">
-                                <option value="static">Static</option>
-                                <option value="pan">Pan (horizontal)</option>
-                                <option value="tilt">Tilt (vertical)</option>
-                                <option value="dolly">Dolly (push/pull)</option>
-                                <option value="track">Track / Truck</option>
-                                <option value="crane">Crane / Jib</option>
-                                <option value="handheld">Handheld</option>
-                                <option value="steadicam">Steadicam</option>
-                                <option value="gimbal">Gimbal</option>
-                            </select>
-                        </div>
+
 
                     </div>
 
@@ -148,6 +133,7 @@
                                 <span class="info-icon">i<span class="tooltip">Overall lighting style and setup</span></span>
                             </div>
                             <select class="param-select" id="lighting_type" name="lighting_type">
+                                 <option value="" selected hidden></option>
                                 <option value="natural">Natural</option>
                                 <option value="low_key">Low Key (dramatic shadows)</option>
                                 <option value="high_key">High Key (bright, minimal shadows)</option>
@@ -166,6 +152,7 @@
                                 <span class="info-icon">i<span class="tooltip">Primary light source direction</span></span>
                             </div>
                             <select class="param-select" id="light_direction" name="light_direction">
+                                 <option value="" selected hidden></option>
                                 <option value="front">Front Light</option>
                                 <option value="side">Side Light</option>
                                 <option value="back">Back Light</option>
@@ -189,6 +176,7 @@
                                 <span class="info-icon">i<span class="tooltip">Natural lighting time period</span></span>
                             </div>
                             <select class="param-select" id="time_of_day" name="time_of_day">
+                                 <option value="" selected hidden></option>
                                 <option value="dawn">Dawn</option>
                                 <option value="morning">Morning</option>
                                 <option value="midday">Midday</option>
@@ -237,6 +225,7 @@
                                 <span class="info-icon">i<span class="tooltip">Overall color treatment style</span></span>
                             </div>
                             <select class="param-select" id="color_grade" name="color_grade">
+                                 <option value="" selected hidden></option>
                                 <option value="natural">Natural</option>
                                 <option value="warm">Warm</option>
                                 <option value="cool">Cool</option>
@@ -355,6 +344,7 @@
                                 <span class="info-icon">i<span class="tooltip">Framing guideline for positioning</span></span>
                             </div>
                             <select class="param-select" id="composition_rule" name="composition_rule">
+                                 <option value="" selected hidden></option>
                                 <option value="thirds">Rule of Thirds</option>
                                 <option value="golden_ratio">Golden Ratio</option>
                                 <option value="center">Centered</option>
@@ -370,6 +360,7 @@
                                 <span class="info-icon">i<span class="tooltip">Where subject is placed in frame</span></span>
                             </div>
                             <select class="param-select" id="subject_position" name="subject_position">
+                                 <option value="" selected hidden></option>
                                 <option value="center">Center</option>
                                 <option value="left">Left Third</option>
                                 <option value="right">Right Third</option>
@@ -408,6 +399,7 @@
                                 <span class="info-icon">i<span class="tooltip">Film format to emulate</span></span>
                             </div>
                             <select class="param-select" id="film_stock" name="film_stock">
+                                 <option value="" selected hidden></option>
                                 <option value="digital">Digital (Clean)</option>
                                 <option value="35mm">35mm Film</option>
                                 <option value="16mm">16mm Film</option>
@@ -480,6 +472,7 @@
                                 <span class="info-icon">i<span class="tooltip">Environmental conditions</span></span>
                             </div>
                             <select class="param-select" id="weather" name="weather">
+                                 <option value="" selected hidden></option>
                                 <option value="clear">Clear</option>
                                 <option value="overcast">Overcast</option>
                                 <option value="rain">Rain</option>
@@ -495,6 +488,7 @@
                                 <span class="info-icon">i<span class="tooltip">Overall mood</span></span>
                             </div>
                             <select class="param-select" id="atmosphere" name="atmosphere">
+                                 <option value="" selected hidden></option>
                                 <option value="neutral">Neutral</option>
                                 <option value="tense">Tense</option>
                                 <option value="peaceful">Peaceful</option>
@@ -517,6 +511,7 @@
                                 <span>Dense</span>
                             </div>
                         </div>
+
                     </div>
                        <button class="generate-btn" type="submit" value="refine">Refine Shot</button>
                        </form>

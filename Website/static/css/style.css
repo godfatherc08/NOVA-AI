@@ -366,6 +366,25 @@ section {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
+.expanding-textarea {
+        font-size: 15pt;
+        width: 500px;
+        min-height: 50px;
+        max-height: 400px; /* Prevent infinite growth */
+        resize: none;
+        overflow: hidden;
+        transition: height 0.2s ease;
+        padding: 12px 15px;
+        border: 1px solid #333;
+        background: #000;
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .expanding-textarea:focus {
+        outline: none;
+        border-color: #fff;
+    }
 
 .iconic-shot {
     aspect-ratio: 16/9;

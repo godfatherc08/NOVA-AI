@@ -45,10 +45,10 @@
             </div>
         </div>
         <div class="iconic-grid">
-            <div class="iconic-shot" data-label="THE GODFATHER - Puppet Master"></div>
-            <div class="iconic-shot" data-label="CITIZEN KANE - Power From Below"></div>
-            <div class="iconic-shot" data-label="BLADE RUNNER - Dystopian Vista"></div>
-            <div class="iconic-shot" data-label="2001 - Infinite Corridor"></div>
+            <div class="iconic-shot" data-label="THE GODFATHER - Puppet Master"><img src="{{ url_for( 'static',filename='images/1.jpg' ) }}"></div>
+            <div class="iconic-shot" data-label="CITIZEN KANE - Power From Below"><img src="{{ url_for( 'static',filename='images/2.jpg' ) }}"></div>
+            <div class="iconic-shot" data-label="BLADE RUNNER - Dystopian Vista"><img src="{{ url_for( 'static',filename='images/3.jpg' ) }}"></div>
+            <div class="iconic-shot" data-label="2001 - Infinite Corridor"><img src="{{ url_for( 'static',filename='images/4.jpg' ) }}"></div>
         </div>
     </section>
 
@@ -58,7 +58,7 @@
         <div class="process-grid">
             <div class="process-step">
                 <div class="step-number">01</div>
-                <div class="step-title">Upload Your Script</div>
+                <div class="step-title">Give a scene description</div>
                 <div class="step-desc">Paste your scene. Any format works.</div>
             </div>
             <div class="process-step">
@@ -85,7 +85,13 @@
                 <div class="upload-zone">
                     <form method="post" action="{{ url_for('views.editor') }}">
                         <input type="hidden" name="action" value="generate">
-                        <label for="query"></label><input type="text" class = "form-control" id = "query" name = "query" placeholder = "Enter scene:" style = "font-size: 15pt; width: 500px">
+                        <label for="query"></label><textarea
+        class="form-control expanding-textarea"
+        id="query"
+        name="query"
+        placeholder="Enter scene description..."
+        rows="1"
+    ></textarea>
                         <button class="cta-button" type="submit" value="generate">Create Shot</button>
                     </form>
                     <p style="color: #666; font-size: 14px;">Describe your shot or upload reference</p>
@@ -127,6 +133,20 @@
     </footer>
 
     <script>
+
+    const textarea = document.getElementById('query');
+
+    function autoResize() {
+        this.style.height = 'auto';
+        this.style.height = Math.min(this.scrollHeight, 400) + 'px';
+    }
+
+    textarea.addEventListener('input', autoResize);
+    textarea.addEventListener('focus', autoResize);
+
+    // Initial call
+    autoResize.call(textarea);
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
