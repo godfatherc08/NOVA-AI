@@ -142,31 +142,80 @@ Every shot exposes professional cinematography parameters, including:
 - Composition rules  
 - Film stock emulation  
 
-All parameters are editable by the user. The backend converts these controls into **structured JSON** for deterministic FIBO generation.
-
-### Shot Continuity
-Nova maintains consistency across shots by preserving:
-
-- Spatial relationships  
-- Visual tone  
-- Character positioning  
-- Lighting logic  
-
-This enables realistic shot progression across scenes.
 
 ### Iterative Exploration
-Adjust emotion, mood, or framing **without breaking the integrity of the shot**. Each parameter is isolated, ensuring changes do not introduce unintended visual drift.
+Adjust cinematic parameters **without breaking the integrity of the shot**. Each parameter is isolated, ensuring changes do not introduce unintended visual drift. It also builds on the FIBO JSON Architecture, by allowing users alter cinematic parameters with a better UI, then the backend converts such adjustments into structured json for FIBO.
+
+### EXAMPLE OF A FIBO PRODUCTION BRIEF, ALONG AS RETRIEVED INFORMATION FROM VECTOR DATABASE
+```bash
+RETRIEVED INFO
+
+{'query': 'A child presses their face against a rain-streaked window, watching delivery drones fly past neon-lit apartment blocks stacked hundreds of stories high.',
+
+'results': [{'metadata': {}, 'content': "There is something appealing about a window that gives a romantic mood\nto a picture. It makes an excellent frame. It is through the window that our\nwishes, hopes, and dreams exit; we expect them to return through the door in\nthe form of good fortune. The illumination of window shots is quite perplexing. Take, for instance, a\npicture where a person is standing against the sunlit curtain of a window. The old-fashioned way of lighting this was to light the window from the\noutside, and the person, in flat key from the inside. This two-way light\nproduced a contra dictory, confusing feeling. The average layman may not\nunderstand lighting, but every child can tell sunlight when he sees it. The\nnew school of photography allows us to light realistically. Subdued, low-key\nfaces with strong cross and backlights, are nowadays accepted without any\ncomment, even in daylight shots. The correct way to light such a picture is with an arc from the outside. If\npossible, mix in some inkie light coming from the same direction. This will\ntake care of the curtain and the incoming sunlight. It will also outline the\ncontours of the person's face and figure. If possible, use a light blue curtain. This will allow the use of a stronger light from outside than will a white one. Inside, we add a crosslight of less intensity than the arc outside. On the side\nof this crosslight, next to the camera, we add a broad diffused with several\nsilks. The feeling of this picture will be that of outside sunlight, provided the\nbacking is lit in a high key. For that uniform lighting, we use a Duarc or two\n(Fig."}, {'metadata': {}, 'content': 'Fig. In order to make rain register on the screen it must be lighted in a special\nway-backlighted. This light is reflected by the millions of the rain drops, and\nwe have a curtain of rain. Frontlight goes right through it. If possible, we\nshoot rain scenes against a black background. As there is usually no moon out when it rains at night it would be a mistake\nto have a keylight or any shadows at all unless caused by other light sources,\nsuch as a street lamp, a store, a window, etc. Some cameramen have tried to\nshoot real rain, but only for reasons of economy. In some instances these\nscenes turned out to be impressively realistic. In reality the set should be dark, but for purposes of photography we need\nsome kind of a light, even if its source is invisible. This is accomplished by\ndiffusing all concentrated lights, or using only light reflected by white\nscreens, which gives us the no principal light feeling of rainy nights. When it rains the pavement is wet and reflects all existing light sources. We must be careful with strong backlights-they pick up. For interiors a rainspattered window is sufficient to establish the weather outside. This is\neconomical and very effective.'}, {'metadata': {}, 'content': 'After the rain the atmosphere is usually clear. This mood can be used to\nsymbolize a dramatic situation, as for instance, to parallel a scene of\nclarification of a psychological problem. In real life when we see two people walk on a moonlit street they are\nusually backlit, silhouetted against the haze or lighter walls. As we come\ncloser to them, in the same light we begin to discern faces and other details.'}, {'metadata': {}, 'content': '. A kid seated on the hill jumps up to watch the ball climb into the sky. “Damn!” .'}, {'metadata': {}, 'content': 'Ball bounces off the pole…\n\n. And right into the window of a nearby house. . Woman in the house jumps as ball smashes the window. The fielder\ncomes running up to find the ball.'}]}
+
+
+Cinematic Shot Breakdown:
+
+Detailed Scene Description:  
+The scene captures a child pressing their face against a rain-streaked window, gazing out at a futuristic urban landscape. Delivery drones zip past, their lights flickering against the backdrop of neon-lit apartment blocks that stretch hundreds of stories into the sky. The atmosphere is a blend of intimacy and vastness, with the child’s curiosity contrasting the overwhelming scale of the city outside.
+
+Camera Setup:  
+I’d opt for an ARRI ALEXA Mini LF or Sony Venice 2 for its dynamic range and low-light capabilities, essential for capturing the neon lights and rain-streaked glass. The camera would be mounted on a techno crane with a remote head, allowing for a smooth, fluid movement. The shot begins with a tight close-up of the child’s face, their breath fogging the glass, then slowly pulls back to reveal the window and the sprawling cityscape beyond. The movement is deliberate, mirroring the child’s expanding sense of wonder.  
+
+Lens Choice: 
+A Cooke Anamorphic 40mm would be ideal. The anamorphic format enhances the verticality of the towering apartment blocks and adds a cinematic stretch to the neon lights. The 40mm focal length provides a natural perspective, balancing intimacy with the grandeur of the environment. Shooting at T2.8, we’ll maintain a shallow depth of field to keep the child’s face sharp while softly blurring the rain streaks and distant city lights, creating a dreamlike quality.  
+
+Framing and Composition:
+The shot adheres to the **rule of thirds**, placing the child’s face in the lower left third, with the window frame acting as a natural leading line toward the cityscape. The rain streaks on the glass create diagonal lines that draw the eye outward, emphasizing the contrast between the child’s confined space and the expansive world outside. The negative space above the child’s head highlights their smallness in relation to the towering structures.  
+
+Lighting Design:
+The primary light source is the **neon glow** from the apartment blocks, casting a cool, artificial hue through the window. To enhance the rain, I’d use **backlighting** with Kino Flo tubes placed outside the window, their light diffused through the rain to create a shimmering effect. A practical lamp inside the room provides a warm, soft key light on the child’s face, contrasting the cold exterior. The shadows cast by the rain streaks add texture and depth, reinforcing the mood of introspection.  
+
+Color Palette and Grading: 
+The color palette leans into cool blues and vibrant neons, reflecting the futuristic, urban setting. The child’s face is graded with warmer tones to maintain emotional connection. In post, I’d enhance the neon lights with saturation boosts and add a subtle film grain to give the scene a tactile, lived-in feel. The rain streaks would be desaturated slightly to ensure they don’t compete with the neon colors.  
+
+Actor Blocking and Interactions:  
+The child’s movement is minimal but intentional. They press their face against the glass, their hands splayed on the windowpane, creating a physical connection between their world and the one outside. Their gaze follows the drones, their eyes widening with each pass, conveying a mix of awe and longing.  
+
+Set and Environment Considerations:  
+The window should be designed with layered glass panels to simulate rain streaks without obstructing the view. The exterior cityscape would be a combination of practical neon lights and LED panels to create the apartment blocks. The drones would be CGI, composited in post to ensure seamless integration with the live-action elements.  
+
+Visual Storytelling, Narrative Justification, and Continuity:
+This shot serves as a visual metaphor for the child’s aspirations and the vast, unattainable world they yearn to explore. The rain-streaked window acts as a barrier, both physical and emotional, while the drones symbolize the constant movement and progress of the city. The shot’s continuity would be maintained by ensuring the child’s gaze aligns with the drone’s path in subsequent shots.  
+
+Potential Production or Logistical Challenges:
+Shooting through rain-streaked glass can create reflections and glare. To mitigate this, we’d use anti-reflective coatings and carefully position the lighting. The techno crane setup requires precise coordination to avoid shaking during the pull-back movement. Additionally, syncing the drone’s movement with the child’s gaze in real-time could be challenging, necessitating careful pre-visualization and rehearsal.  
+
+Render Settings:
+{
+  color_depth: 16-bit;
+  dynamic_range: HDR;
+  tone_mapping: filmic;
+  preserve_highlights: true;
+  gamma: 2.2;
+  exposure: 0.0;
+  white_balance: D65;
+}
+
+```
 
 ---
 
 ## Architecture Overview
 
 Script / Creative Input
+
 ↓
+
 Agentic Layer (Cinematography Reasoning)
+
 ↓
+
 FIBO Image Generation
+
 ↓
+
 Storyboard Output
 
 
@@ -256,6 +305,7 @@ pip install -r requirements.txt
 
 
 python main.py
+```
 
 🎥 Demo Video:
 https://youtu.be/GKcBJXSaEZU
