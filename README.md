@@ -239,12 +239,12 @@ Each modification affects **only the intended parameter**, preserving the shotâ€
 
 ### Installation
 ```bash
-git clone https://github.com/your-username/nova
-cd nova
+git clone https://github.com/godfatherc08/NOVA-AI
+
 pip install -r requirements.txt
 
 
 python main.py
 
 ðŸŽ¥ Demo Video:
-(Insert YouTube or Vimeo link here)
+https://youtu.be/GKcBJXSaEZU
