@@ -230,6 +230,17 @@ Each modification affects **only the intended parameter**, preserving the shotâ€
 ---
 
 
+---
+
+### Further Images generated with Nova
+
+<img width="1024" height="1024" alt="e558d37b17fe4d2a8cc4bde8bf3e17e0" src="https://github.com/user-attachments/assets/8d16e781-9977-46de-ae0b-0d80551c2e03" />
+
+<img width="1024" height="1024" alt="ff5ac4e9152c455794e5c182079f3271" src="https://github.com/user-attachments/assets/d65c2926-5efc-4d5b-abe6-39c5f7352799" />
+
+<img width="1024" height="1024" alt="image1" src="https://github.com/user-attachments/assets/075a08ab-81cc-4ae0-a875-7be81cc7c10f" />
+
+
 ## Getting Started
 
 ### Requirements
